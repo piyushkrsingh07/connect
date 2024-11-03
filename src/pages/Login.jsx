@@ -29,21 +29,26 @@ const Login = (props) => {
         },
         body:JSON.stringify(FormData),
       })
-      response=await response.json()
- 
+     const data=await response.json();
+  
 
-
+      
      
-    
-       console.log(response)
-        setIsLoggedIn(true)
-        toast.success("Logged In")
-        navigate("/dashboard")
+      if (response.ok) {
+       
+        setIsLoggedIn(true);
+        toast.success("Logged In Successfully");
+        navigate("/dashboard");
+    } else {
+       
+        toast.error(data.error||"Password Or Email is incorrect");
+    }
+} 
       
        
     
 
-      }
+      
      catch (error) {
           console.log("signin",error)
     }

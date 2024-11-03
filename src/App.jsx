@@ -11,16 +11,19 @@ import Sidebar from "./components/Sidebar"
 import Attendance from './components/Attendance'
 import Timetable from './components/Timetable'
 import Profile from './components/Profile'
+import {openContext} from './context/context'
+
 
 import {Route,Routes} from "react-router-dom"
 
 function App() {
 
   const[IsLoggedIn,setIsLoggedIn]=useState(false);
-
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
+    <openContext.Provider value={{isOpen,setIsOpen}}>
     <div>
       <Navbar IsLoggedIn={IsLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
 
@@ -40,6 +43,7 @@ function App() {
       </Routes>
 
     </div>
+    </openContext.Provider>
     </>
   )
 }

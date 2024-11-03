@@ -45,7 +45,7 @@ const Navbar = (props) => {
           <button className='text-white bg-gray-500 px-2 py-1 rounded-sm border-hidden transition-all duration:200 hover:border-solid hover:border-white hover:border'>SignUp</button>
         </NavLink>
         }
-
+{/* 
         { IsLoggedIn &&
         <NavLink to="/">
         <button onClick={()=>{
@@ -54,7 +54,7 @@ const Navbar = (props) => {
                 
          }} className='text-white bg-gray-500 px-2 py-1 rounded-sm border-hidden transition-all duration:200 hover:border-solid hover:border-white hover:border'>Logout</button>
         </NavLink>
-         }
+         } */}
 
 
 
@@ -82,7 +82,8 @@ const Navbar = (props) => {
          </div>
          <ul className="md:flex space-x-4">
            <li><Link to="/dashboard" className="text-white text-xl block px-4 py-2">Dashboard</Link></li>
-           <li><Link to="/Attendance" className="text-white  text-xl block px-4 py-2">Attendance</Link></li>
+           <li><Link to="/Attendance" className="text-white  text-xl block px-4 py-2"><button>
+            Attendance</button></Link></li>
            <li><Link to="/Timetable" className="text-white text-xl block px-4 py-2">Timetable</Link></li>
            <li><Link to="/Profile" className="text-white  text-xl block px-4 py-2">Profile</Link></li>
 
@@ -94,6 +95,7 @@ const Navbar = (props) => {
                 
          }} className='text-white bg-gray-500 px-2 py-1 rounded-sm border-hidden transition-all duration:200 hover:border-solid hover:border-white hover:border'>Logout</button>
         </NavLink>
+        
        </nav>
 
 

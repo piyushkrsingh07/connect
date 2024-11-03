@@ -28,24 +28,28 @@ const Signup = (props) => {
           },
           body:JSON.stringify(FormData),
         })
-        response=await response.json()
-      
+      const data=await response.json()
+
+            if(response.ok){
           if(FormData.password != FormData.confirmpassword)
             {
             toast.error("Password mismatch")
             return;
           }
           else{
-        console.log(FormData)
-        // setIsLoggedIn(true);
+           
       setIsLoggedIn(true);
         
       toast.success("Account Successfully Created")
           navigate("/dashboard")
           }
+        }
+        else{
+        toast.error(data.error||"Recheck email or password")
+        }
          
 
-        console.log(response)
+        
       }
       catch(error){
         console.log("signup",error)

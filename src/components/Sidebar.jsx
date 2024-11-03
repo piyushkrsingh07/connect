@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Dashboard from '../pages/Dashboard';
+import { openContext } from '../context/context';
+
 
 const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
+    // const [isOpen, setIsOpen] = useState(false);
+   const value=useContext(openContext)
+    
+    
     const toggleSidebar = () => {
-      setIsOpen(prev => !prev);
+      value.setIsOpen(prev => !prev);
+     
     };
     return (
+      
+      <>
+      {/* <Dashboard isOpen={isOpen}/> */}
+   
+        
         <div>
           <button 
             onClick={toggleSidebar} 
@@ -27,8 +38,8 @@ const Sidebar = () => {
           </button>
     
           
-          <div className={`fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-            <div className={`fixed left-0 top-0 w-64 bg-white p-4 transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+          <div className={`fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity ${value.isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`fixed left-0 top-0 w-64 bg-white p-4 transform transition-transform duration-300 ${value.isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
               <button 
                 onClick={toggleSidebar} 
                 className="text-black underline mb-4">
@@ -80,8 +91,13 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
+        
+        
+        </>
       );
     };
+
+
     
 
 
